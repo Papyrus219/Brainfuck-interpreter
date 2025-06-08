@@ -31,7 +31,6 @@
 *.out
 *.app
 
-*.txt
 *.kdev
 *.kdev4
 build/
