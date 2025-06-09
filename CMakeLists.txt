@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.31)
-project(project)
+project(brainfuck)
 
 file(GLOB_RECURSE SRC src/*cpp)
 set(SOURCES ${SRC})
