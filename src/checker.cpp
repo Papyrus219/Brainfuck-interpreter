@@ -2,24 +2,14 @@
 #include<vector>
 #include<stack>
 #include"./exeptions.hpp"
+#include"./globals.hpp"
 
 /*
  * @Throw exeption: Wrong_brackets,
  */
 
-struct Bracket
-{
-    char rep{};
-    std::pair<int,int> possition{};
-
-    Bracket(char rep, std::pair<int,int> possition): rep{rep}, possition{possition}
-    {};
-};
-
 void Correct_check(std::vector<std::string> CODE)
 {
-    std::stack<Bracket> Brackets{};
-
     for(int i=0;i<CODE.size();i++)
     {
         for(int j=0;j<CODE[i].size();j++)

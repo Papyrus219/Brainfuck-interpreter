@@ -20,10 +20,7 @@ int main(int argc, char** argv)
             file.close();
         }
         Correct_check(CODE);
-        for(auto el : CODE)
-        {
-            std::cout << el;
-        }
+        Execude_Code(CODE);
     }
     catch(Wrong_open x)
     {
