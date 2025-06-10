@@ -3,8 +3,8 @@
 
 #include<stack>
 
-extern char Tabble[30000];
-constexpr short int TABBLE_SIZE{30000};
+extern char Table[30000];
+constexpr short int TABLE_SIZE{30000};
 extern char *ptr;
 extern int bracket_level;
 

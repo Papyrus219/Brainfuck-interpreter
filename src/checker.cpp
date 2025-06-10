@@ -10,19 +10,19 @@
 
 void Correct_check(std::vector<std::string> CODE)
 {
-    for(int i=0;i<CODE.size();i++)
+    for(int line=0;line<CODE.size();line++)
     {
-        for(int j=0;j<CODE[i].size();j++)
+        for(int position=0;position<CODE[line].size();position++)
         {
-            switch(CODE[i][j])
+            switch(CODE[line][position])
             {
                 case '[':
-                    Brackets.push(Bracket{'[',{i,j}});
+                    Brackets.push(Bracket{'[',{line,position}});
                     break;
                 case ']':
                     if(Brackets.empty())
                     {
-                        Wrong_brackets x{"Bracket don't have pair!\n",{i,j},CODE[i]};
+                        Wrong_brackets x{"Bracket don't have pair!\n",{line,position},CODE[line]};
                         throw x;
                     }
 

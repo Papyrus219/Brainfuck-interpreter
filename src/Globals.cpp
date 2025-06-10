@@ -1,6 +1,6 @@
 #include"globals.hpp"
 
-char Tabble[30000]{};
-char *ptr{Tabble};
+char Table[30000]{};
+char *ptr{Table};
 std::stack<Bracket> Brackets{};
 int bracket_level{};

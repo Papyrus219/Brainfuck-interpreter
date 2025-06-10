@@ -20,7 +20,6 @@ int main(int argc, char** argv)
             file.close();
         }
         Correct_check(CODE);
-        Execude_Code(CODE);
     }
     catch(Wrong_open x)
     {
@@ -41,6 +40,8 @@ int main(int argc, char** argv)
         }
         std::cout << col::colors.normal;
     }
+
+    Execute_Code(CODE);
 
     return 0;
 }
