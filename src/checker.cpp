@@ -7,36 +7,36 @@
 /*
  * @Throw exeption: Wrong_brackets,
  */
-void Correct_check(std::vector<std::string> &CODE)
+void Correct_check(std::vector<std::string> &code)
 {
-    std::stack<Bracket> Brackets{};
-    int bracket_level{};
+    std::stack<Bracket> brackets{};
+    int bracketLevel{};
 
 
-    for(int line=0;line<CODE.size();line++)
+    for(int line=0;line<code.size();line++)
     {
-        for(int position=0;position<CODE[line].size();position++)
+        for(int position=0;position<code[line].size();position++)
         {
-            switch(CODE[line][position])
+            switch(code[line][position])
             {
                 case '[':
-                    Brackets.push(Bracket{'[',{line,position}});
+                    brackets.push(Bracket{'[',{line,position}});
                     break;
                 case ']':
-                    if(Brackets.empty())
+                    if(brackets.empty())
                     {
-                        Wrong_brackets x{"Bracket don't have pair!\n",{line,position},CODE[line]};
+                        Wrong_brackets x{"Bracket don't have pair!\n",{line,position},code[line]};
                         throw x;
                     }
 
-                    Brackets.pop();
+                    brackets.pop();
                     break;
             }
         }
 
-        if(!Brackets.empty())
+        if(!brackets.empty())
         {
-            Wrong_brackets x{"Bracket don't have pair!\n", Brackets.top().possition, CODE[Brackets.top().possition.first]};
+            Wrong_brackets x{"Bracket don't have pair!\n", brackets.top().possition, code[brackets.top().possition.first]};
             throw x;
         }
     }

@@ -10,16 +10,16 @@ void Load_file_to_string(std::vector<std::string> &string_vector, std::ifstream 
 
 int main(int argc, char** argv)
 {
-    std::vector<std::string> CODE{};
+    std::vector<std::string> code{};
     try
     {
         for(int i=1;i<argc;i++)
         {
             std::ifstream file{argv[i]};
-            Load_file_to_string(CODE, file);
+            Load_file_to_string(code, file);
             file.close();
         }
-        Correct_check(CODE);
+        Correct_check(code);
     }
     catch(Wrong_open x)
     {
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
         std::cout << col::TColorer::normal;
     }
 
-    Execute_Code(CODE);
+    Execute_Code(code);
 
     return 0;
 }

@@ -3,12 +3,11 @@
 
 #include<string_view>
 
-/**
- * @todo write docs
- */
-
 namespace col
 {
+    /**
+     * Struct to storage consol colors.
+     */
     struct TColorer
     {
         constexpr static std::string_view normal{"\033[0m"};

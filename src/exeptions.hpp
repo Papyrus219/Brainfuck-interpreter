@@ -3,26 +3,26 @@
 
 #include<string>
 
-struct exeption
+struct Exeption
 {
     std::string reason{};
 
-    exeption(std::string reason): reason{reason}
+    Exeption(std::string reason): reason{reason}
     {};
 };
 
-struct Wrong_open: public exeption
+struct Wrong_open: public Exeption
 {
-    Wrong_open(std::string reason): exeption(reason)
+    Wrong_open(std::string reason): Exeption(reason)
     {};
 };
 
-struct Wrong_brackets: public exeption
+struct Wrong_brackets: public Exeption
 {
     std::pair<int,int> where;
     std::string what{};
 
-    Wrong_brackets(std::string reason, std::pair<int,int> where, std::string what): exeption(reason), where{where}, what{what}
+    Wrong_brackets(std::string reason, std::pair<int,int> where, std::string what): Exeption(reason), where{where}, what{what}
     {};
 };
 

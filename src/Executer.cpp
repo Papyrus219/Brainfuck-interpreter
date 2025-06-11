@@ -5,30 +5,30 @@
 
 
 
-void Execute_Code(std::vector<std::string> &CODE)
+void Execute_Code(std::vector<std::string> &code)
 {
-    std::array<char,30000> Table{};
-    char *ptr{Table.data()};
-    std::stack<Bracket> Brackets{};
-    int bracket_level{};
+    std::array<char,30000> table{};
+    char *ptr{table.data()};
+    std::stack<Bracket> brackets{};
+    int bracketLevel{};
 
     int now{};
 
-    for(int line=0;line<CODE.size();line++)
+    for(int line=0;line<code.size();line++)
     {
-        for(int position=0;position<CODE[line].size();position++)
+        for(int position=0;position<code[line].size();position++)
         {
-            switch(CODE[line][position])
+            switch(code[line][position])
             {
                 case '<':
-                    if(ptr == Table.begin())
-                        ptr = Table.end()-1;
+                    if(ptr == table.begin())
+                        ptr = table.end()-1;
                     else
                         ptr--;
                     break;
                 case '>':
-                    if(ptr == Table.end()-1)
-                        ptr = Table.begin();
+                    if(ptr == table.end()-1)
+                        ptr = table.begin();
                     else
                         ptr++;
                     break;
@@ -46,31 +46,31 @@ void Execute_Code(std::vector<std::string> &CODE)
                     break;
                 case '[':
                     if((*ptr) != 0)
-                        Brackets.push(Bracket{'[',{line,position}});
+                        brackets.push(Bracket{'[',{line,position}});
                     else //If loop is false, we must find coresponding brascet.
                     {
                         do
                         {
-                            if(CODE[line][position] == '[') //We increase level if we enter another loop.
-                                bracket_level++;
-                            else if(CODE[line][position] == ']') //We decrease level if we leave a loop.
-                                bracket_level--;
+                            if(code[line][position] == '[') //We increase level if we enter another loop.
+                                bracketLevel++;
+                            else if(code[line][position] == ']') //We decrease level if we leave a loop.
+                                bracketLevel--;
 
                             position++;
-                            if(position >= CODE[line].size())
+                            if(position >= code[line].size())
                             {
                                 line++;
                                 position=0;
                             }
-                        } while(bracket_level != 0); //If we are at level 0 it mean we at coresponding brascet.
+                        } while(bracketLevel != 0); //If we are at level 0 it mean we at coresponding brascet.
                     }
                     break;
                 case ']':
-                    if(!Brackets.empty()) //If there was brascet before we go to closest one (coresponding)
+                    if(!brackets.empty()) //If there was brascet before we go to closest one (coresponding)
                     {
-                        line = Brackets.top().possition.first;
-                        position = Brackets.top().possition.second - 1;
-                        Brackets.pop();
+                        line = brackets.top().possition.first;
+                        position = brackets.top().possition.second - 1;
+                        brackets.pop();
                     }
                     break;
                 case ',':
