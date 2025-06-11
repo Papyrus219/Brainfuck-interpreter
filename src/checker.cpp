@@ -2,14 +2,17 @@
 #include<vector>
 #include<stack>
 #include"./exeptions.hpp"
-#include"./globals.hpp"
+#include"./Bracket.hpp"
 
 /*
  * @Throw exeption: Wrong_brackets,
  */
-
-void Correct_check(std::vector<std::string> CODE)
+void Correct_check(std::vector<std::string> &CODE)
 {
+    std::stack<Bracket> Brackets{};
+    int bracket_level{};
+
+
     for(int line=0;line<CODE.size();line++)
     {
         for(int position=0;position<CODE[line].size();position++)

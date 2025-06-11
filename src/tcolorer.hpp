@@ -1,7 +1,7 @@
 #ifndef TCOLORER
 #define TCOLORER
 
-#include<string>
+#include<string_view>
 
 /**
  * @todo write docs
@@ -11,18 +11,16 @@ namespace col
 {
     struct TColorer
     {
-        std::string normal{"\033[0m"};
-        std::string black{"\033[30m"};
-        std::string red{"\033[31m"};
-        std::string green{"\033[32m"};
-        std::string yelow{"\033[33m"};
-        std::string blue{"\033[34m"};
-        std::string violet{"\033[35m"};
-        std::string turquoise{"\033[36m"};
-        std::string white{"\033[37m"};
+        constexpr static std::string_view normal{"\033[0m"};
+        constexpr static std::string_view black{"\033[30m"};
+        constexpr static std::string_view red{"\033[31m"};
+        constexpr static std::string_view green{"\033[32m"};
+        constexpr static std::string_view yelow{"\033[33m"};
+        constexpr static std::string_view blue{"\033[34m"};
+        constexpr static std::string_view violet{"\033[35m"};
+        constexpr static std::string_view turquoise{"\033[36m"};
+        constexpr static std::string_view white{"\033[37m"};
     };
-
-    TColorer colors;
 }
 
 #endif

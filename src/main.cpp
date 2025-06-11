@@ -23,22 +23,22 @@ int main(int argc, char** argv)
     }
     catch(Wrong_open x)
     {
-        std::cout << col::colors.red << x.reason << col::colors.normal;
+        std::cout << col::TColorer::red << x.reason << col::TColorer::normal;
         return 0;
     }
     catch(Wrong_brackets x)
     {
-        std::cout << col::colors.red << x.reason;
+        std::cout << col::TColorer::red << x.reason;
         std::cout << "line: " << x.where.first << " possition: " << x.where.second << " :: ";
 
         for(int i=0;i<x.what.size();i++)
         {
             if(i == x.where.second)
-                std::cout << col::colors.blue;
+                std::cout << col::TColorer::blue;
 
-            std::cout << x.what[i] << col::colors.red;
+            std::cout << x.what[i] << col::TColorer::red;
         }
-        std::cout << col::colors.normal;
+        std::cout << col::TColorer::normal;
     }
 
     Execute_Code(CODE);

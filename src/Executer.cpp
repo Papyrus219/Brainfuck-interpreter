@@ -1,9 +1,17 @@
-#include"declarations.hpp"
-#include"globals.hpp"
 #include<iostream>
+#include<array>
+#include"./Bracket.hpp"
+#include"declarations.hpp"
 
-void Execute_Code(std::vector<std::string> CODE)
+
+
+void Execute_Code(std::vector<std::string> &CODE)
 {
+    std::array<char,30000> Table{};
+    char *ptr{Table.data()};
+    std::stack<Bracket> Brackets{};
+    int bracket_level{};
+
     int now{};
 
     for(int line=0;line<CODE.size();line++)
@@ -13,22 +21,28 @@ void Execute_Code(std::vector<std::string> CODE)
             switch(CODE[line][position])
             {
                 case '<':
-                    if(ptr == Table)
-                        ptr = &Table[TABLE_SIZE-1];
+                    if(ptr == Table.begin())
+                        ptr = Table.end()-1;
                     else
                         ptr--;
                     break;
                 case '>':
-                    if(ptr == &Table[TABLE_SIZE-1])
-                        ptr = Table;
+                    if(ptr == Table.end()-1)
+                        ptr = Table.begin();
                     else
                         ptr++;
                     break;
                 case '+':
-                    (*ptr)++;
+                    if(static_cast<int>(*ptr) == 255)
+                        *ptr = static_cast<char>(0);
+                    else
+                        (*ptr)++;
                     break;
                 case '-':
-                    (*ptr)--;
+                    if(static_cast<int>(*ptr) == 0)
+                        *ptr = static_cast<char>(255);
+                    else
+                        (*ptr)--;
                     break;
                 case '[':
                     if((*ptr) != 0)

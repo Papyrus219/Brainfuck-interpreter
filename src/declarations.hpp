@@ -4,7 +4,7 @@
 #include<string>
 #include<vector>
 
-extern void Correct_check(std::vector<std::string> CODE);
-extern void Execute_Code(std::vector<std::string> CODE);
+void Correct_check(std::vector<std::string> &CODE);
+void Execute_Code(std::vector<std::string> &CODE);
 
 #endif
