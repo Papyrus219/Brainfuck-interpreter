@@ -10,7 +10,7 @@ void Execute_Code(std::vector<std::string> &code)
     std::array<char,30000> table{};
     char *ptr{table.data()};
     std::stack<Bracket> brackets{};
-    int bracketLevel{};
+    int bracket_level{};
 
     int now{};
 
@@ -52,9 +52,9 @@ void Execute_Code(std::vector<std::string> &code)
                         do
                         {
                             if(code[line][position] == '[') //We increase level if we enter another loop.
-                                bracketLevel++;
+                                bracket_level++;
                             else if(code[line][position] == ']') //We decrease level if we leave a loop.
-                                bracketLevel--;
+                                bracket_level--;
 
                             position++;
                             if(position >= code[line].size())
@@ -62,7 +62,7 @@ void Execute_Code(std::vector<std::string> &code)
                                 line++;
                                 position=0;
                             }
-                        } while(bracketLevel != 0); //If we are at level 0 it mean we at coresponding brascet.
+                        } while(bracket_level != 0); //If we are at level 0 it mean we at coresponding brascet.
                     }
                     break;
                 case ']':

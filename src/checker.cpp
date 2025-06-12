@@ -10,7 +10,7 @@
 void Correct_check(std::vector<std::string> &code)
 {
     std::stack<Bracket> brackets{};
-    int bracketLevel{};
+    int bracket_level{};
 
 
     for(int line=0;line<code.size();line++)
